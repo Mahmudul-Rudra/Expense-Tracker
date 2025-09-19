@@ -65,17 +65,6 @@ class ExpenseViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(user = self.request.user)
 
-# # User Serializer (for registration)
-# class UserSerializer(ModelSerializer):
-#     class Meta:
-#         model = User
-#         fields = ['id', 'username', 'password']
-#         extra_kwargs = {'password':{'write_only':True}}
-        
-#     def create(self, validated_data):
-#         return User.objects.create_user(**validated_data)
-
-
 # Registration view
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
